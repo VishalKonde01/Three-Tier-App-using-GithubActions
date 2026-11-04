@@ -1,0 +1,749 @@
+
+/* ==============================
+   GLOBAL STYLES
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f4f7fc;
+    color: #1e293b;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ==============================
+   SIDEBAR
+============================== */
+
+.sidebar {
+    width: 255px;
+    background: #111c35;
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 5px 35px;
+}
+
+.brand-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #4779f5, #8055ed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.brand h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.brand span {
+    font-size: 10px;
+    color: #9baac6;
+}
+
+.menu-heading {
+    color: #7787a5;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 15px 12px;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: #aebbd2;
+    padding: 14px 13px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+.menu-item span {
+    font-size: 19px;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background: #263b65;
+    color: white;
+    transform: translateX(4px);
+}
+
+.menu-item.active {
+    border-left: 3px solid #6794ff;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 18px 5px 0;
+    border-top: 1px solid #2b3853;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-icon,
+.admin-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #436be0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+.sidebar-footer strong {
+    font-size: 12px;
+    display: block;
+}
+
+.sidebar-footer small {
+    color: #9baac6;
+    font-size: 10px;
+}
+
+
+/* ==============================
+   MAIN CONTENT
+============================== */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 35px 45px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.breadcrumb {
+    color: #8491a8;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.topbar h1 {
+    font-size: 27px;
+    font-weight: 800;
+    color: #17233e;
+}
+
+.welcome-text {
+    font-size: 13px;
+    color: #8491a8;
+    margin-top: 8px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #18865b;
+    background: #e5f8ef;
+    padding: 10px 14px;
+    border-radius: 25px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #20bd79;
+    box-shadow: 0 0 0 4px #c8f3df;
+}
+
+
+/* ==============================
+   WELCOME BANNER
+============================== */
+
+.welcome-banner {
+    min-height: 180px;
+    padding: 32px 38px;
+    border-radius: 17px;
+    background: linear-gradient(115deg, #294fba, #704bd7);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: 0 12px 30px rgba(57, 82, 181, 0.17);
+}
+
+.banner-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #c6d4ff;
+}
+
+.welcome-banner h2 {
+    font-size: 25px;
+    margin: 13px 0;
+}
+
+.welcome-banner p {
+    font-size: 13px;
+    color: #e1e8ff;
+}
+
+.banner-decoration {
+    font-size: 130px;
+    color: rgba(255, 255, 255, 0.15);
+    transform: rotate(20deg);
+    position: absolute;
+    right: 55px;
+}
+
+
+/* ==============================
+   OVERVIEW CARDS
+============================== */
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.overview-card {
+    background: white;
+    border: 1px solid #e9edf5;
+    padding: 22px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 12px rgba(30, 50, 90, 0.025);
+}
+
+.overview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(30, 50, 90, 0.09);
+}
+
+.overview-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    flex-shrink: 0;
+}
+
+.overview-icon.blue {
+    color: #3d70e9;
+    background: #e9f0ff;
+}
+
+.overview-icon.purple {
+    color: #8455df;
+    background: #f1eaff;
+}
+
+.overview-icon.green {
+    color: #16a36d;
+    background: #e4f8ef;
+}
+
+.overview-card p {
+    color: #8a96aa;
+    font-size: 10px;
+    margin-bottom: 6px;
+}
+
+.overview-card h3 {
+    color: #1d2b49;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.overview-card span {
+    font-size: 10px;
+    color: #9ba5b5;
+}
+
+
+/* ==============================
+   CONTENT CARDS
+============================== */
+
+.content-card {
+    background: white;
+    border: 1px solid #e9edf5;
+    padding: 28px;
+    border-radius: 15px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 15px rgba(30, 50, 90, 0.035);
+    scroll-margin-top: 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-tag {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: #5078db;
+    font-weight: 800;
+}
+
+.section-header h2 {
+    color: #1b2946;
+    font-size: 19px;
+    margin: 8px 0;
+}
+
+.section-header p {
+    color: #929db0;
+    font-size: 12px;
+}
+
+.section-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 11px;
+    background: #edf2ff;
+    color: #4e73db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+
+/* ==============================
+   FORM
+============================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #34425e;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #e0e6f0;
+    border-radius: 9px;
+    outline: none;
+    background: #fbfcff;
+    color: #253450;
+    font-size: 12px;
+    transition: all 0.25s ease;
+}
+
+.form-group input::placeholder {
+    color: #aeb7c6;
+}
+
+.form-group input:focus {
+    border-color: #537bea;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(83, 123, 234, 0.11);
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 11px;
+    margin-top: 25px;
+}
+
+
+/* ==============================
+   BUTTONS
+============================== */
+
+.btn {
+    border: none;
+    padding: 12px 19px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-primary {
+    color: white;
+    background: linear-gradient(110deg, #426fe0, #5b82ed);
+    box-shadow: 0 5px 12px rgba(66, 111, 224, 0.2);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 8px 18px rgba(66, 111, 224, 0.3);
+}
+
+.btn-success {
+    background: #e4f7ee;
+    color: #159763;
+}
+
+.btn-success:hover {
+    background: #d1f1e1;
+}
+
+.btn-outline {
+    background: white;
+    border: 1px solid #dce3ef;
+    color: #64728a;
+}
+
+.btn-outline:hover {
+    background: #f4f6fb;
+}
+
+.btn-refresh {
+    background: #edf2ff;
+    color: #426be0;
+}
+
+.btn-refresh:hover {
+    background: #dfe8ff;
+}
+
+
+/* ==============================
+   STUDENT TABLE
+============================== */
+
+.records-header {
+    margin-bottom: 22px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #edf0f6;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f5f7fc;
+}
+
+th {
+    padding: 16px 18px;
+    text-align: left;
+    color: #78859c;
+    font-size: 10px;
+    letter-spacing: 0.7px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+td {
+    padding: 16px 18px;
+    border-top: 1px solid #edf0f6;
+    color: #465570;
+    font-size: 12px;
+}
+
+tbody tr {
+    transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+    background: #f7f9ff;
+}
+
+td:first-child {
+    color: #426fe0;
+    font-weight: 700;
+}
+
+td button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #eaf0ff;
+    color: #416bda;
+    font-size: 10px;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+td button:hover {
+    background: #d8e4ff;
+    transform: translateY(-2px);
+}
+
+td button.delete-btn {
+    background: #fff0f0;
+    color: #df5555;
+}
+
+td button.delete-btn:hover {
+    background: #ffdddd;
+}
+
+.loading-message {
+    text-align: center;
+    color: #8d9ab0;
+    padding: 30px;
+}
+
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    color: #9aa5b6;
+    font-size: 10px;
+    margin-top: 17px;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+.footer {
+    text-align: center;
+    padding: 15px;
+    color: #a0aabb;
+    font-size: 10px;
+}
+
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 1100px) {
+
+    .main-content {
+        padding: 30px 25px;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 18px;
+    }
+
+    .brand {
+        padding-bottom: 15px;
+    }
+
+    .sidebar-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .menu-heading {
+        display: none;
+    }
+
+    .menu-item {
+        padding: 10px;
+        font-size: 11px;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+    .main-content {
+        padding: 25px 18px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+    }
+
+    .topbar h1 {
+        font-size: 22px;
+    }
+
+    .topbar-right {
+        gap: 8px;
+    }
+
+    .status-indicator {
+        font-size: 0;
+        padding: 12px;
+    }
+
+    .admin-avatar {
+        display: none;
+    }
+
+    .welcome-banner {
+        padding: 25px;
+        min-height: 155px;
+    }
+
+    .welcome-banner h2 {
+        font-size: 20px;
+    }
+
+    .banner-decoration {
+        right: 15px;
+        font-size: 85px;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-card {
+        padding: 20px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: auto;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
+
+    .records-header {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .table-footer {
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .menu-item {
+        font-size: 10px;
+    }
+
+}

@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">S</div>
+                <div>
+                    <h2>StudentHub</h2>
+                    <span>Management System</span>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <p class="menu-heading">MENU</p>
+
+                <a href="#" class="menu-item active">
+                    <span>▦</span>
+                    Dashboard
+                </a>
+
+                <a href="#student-form" class="menu-item">
+                    <span>＋</span>
+                    Add Student
+                </a>
+
+                <a href="#student-records" class="menu-item">
+                    <span>☷</span>
+                    Student Records
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="profile-icon">A</div>
+                <div>
+                    <strong>Administrator</strong>
+                    <small>Dashboard Access</small>
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Top Header -->
+            <header class="topbar">
+
+                <div>
+                    <p class="breadcrumb">Pages / Dashboard</p>
+                    <h1>Student Dashboard</h1>
+                    <p class="welcome-text">
+                        Manage your student information in one place.
+                    </p>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        System Online
+                    </div>
+
+                    <div class="admin-avatar">A</div>
+                </div>
+
+            </header>
+
+
+            <!-- Welcome Banner -->
+            <section class="welcome-banner">
+
+                <div>
+                    <span class="banner-label">STUDENT MANAGEMENT</span>
+
+                    <h2>Welcome to your dashboard!</h2>
+
+                    <p>
+                        Keep student records organized, updated and accessible.
+                    </p>
+                </div>
+
+                <div class="banner-decoration">✦</div>
+
+            </section>
+
+
+            <!-- Dashboard Overview -->
+            <section class="overview-grid">
+
+                <div class="overview-card">
+                    <div class="overview-icon blue">♙</div>
+
+                    <div>
+                        <p>Student Management</p>
+                        <h3>Student Records</h3>
+                        <span>View and manage student details</span>
+                    </div>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-icon purple">＋</div>
+
+                    <div>
+                        <p>Registration</p>
+                        <h3>New Students</h3>
+                        <span>Add student information</span>
+                    </div>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-icon green">✓</div>
+
+                    <div>
+                        <p>Record Management</p>
+                        <h3>CRUD Operations</h3>
+                        <span>Create, read, update and delete</span>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- Student Form -->
+            <section class="content-card" id="student-form">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-tag">STUDENT DETAILS</span>
+                        <h2>Add / Update Student</h2>
+
+                        <p>
+                            Enter the required information below.
+                        </p>
+                    </div>
+
+                    <div class="section-icon">✎</div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <input type="hidden" id="studentId">
+
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+
+                        <input
+                            type="text"
+                            id="fname"
+                            placeholder="Enter first name"
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="lname">Last Name</label>
+
+                        <input
+                            type="text"
+                            id="lname"
+                            placeholder="Enter last name"
+                        >
+                    </div>
+
+
+                    <div class="form-group full-width">
+                        <label for="email">Email Address</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="example@email.com"
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button class="btn btn-primary" onclick="addStudent()">
+                        <span>＋</span> Add Student
+                    </button>
+
+                    <button class="btn btn-success" onclick="updateStudent()">
+                        <span>✓</span> Update Student
+                    </button>
+
+                    <button class="btn btn-outline" onclick="clearForm()">
+                        Clear Form
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Student Records -->
+            <section class="content-card" id="student-records">
+
+                <div class="section-header records-header">
+
+                    <div>
+                        <span class="section-tag">DATABASE</span>
+                        <h2>Student Records</h2>
+
+                        <p>
+                            View and manage all registered students.
+                        </p>
+                    </div>
+
+                    <button class="btn btn-refresh" onclick="loadStudents()">
+                        ↻ Refresh Records
+                    </button>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>STUDENT ID</th>
+                                <th>FULL NAME</th>
+                                <th>EMAIL ADDRESS</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="studentTable">
+
+                            <tr>
+                                <td colspan="4" class="loading-message">
+                                    Loading student records...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="table-footer">
+                    <span>Student database management</span>
+                    <span>Powered by StudentHub</span>
+                </div>
+
+            </section>
+
+
+            <!-- Footer -->
+            <footer class="footer">
+                © 2026 StudentHub. All rights reserved.
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- Load application logic only once -->
+    <script src="app.js"></script>
+
+</body>
+</html>
