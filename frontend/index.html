@@ -282,8 +282,11 @@
     </div>
 
 
-    <!-- Load application logic only once -->
-    <script src="app.js"></script>
+   <!-- Load API configuration first -->
+<script src="config.js"></script>
+
+<!-- Load application logic after configuration -->
+<script src="app.js" defer></script>
 
 </body>
 </html>

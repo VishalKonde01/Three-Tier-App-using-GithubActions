@@ -1,4 +1,8 @@
-const API_URL = window.APP_CONFIG.API_URL;
+const API_URL = window.APP_CONFIG?.API_URL;
+
+if (!API_URL) {
+    throw new Error("API_URL is missing. Check config.js and Docker environment variables.");
+}
 
 
 
